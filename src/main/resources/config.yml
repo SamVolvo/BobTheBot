@@ -1,0 +1,12 @@
+#    BobTheBot Live version
+##   Created by SamVolvo
+###  Website: https://samvolvo.com/BobTheBot
+
+
+token: "MTIzODk3NjkxMDgzMTI1OTcyOA.GcjDJI.gxMADCOrDETd6p8YYGyrm8ZCMEo3QwbjXLwb4g"
+
+# DataBase
+db-name: "testbase"
+db-user: "samvolvo"
+db-psw: "yolo"
+db-url: localhost:3306
