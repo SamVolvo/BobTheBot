@@ -68,6 +68,18 @@
       <artifactId>HikariCP</artifactId>
       <version>5.0.0</version>
     </dependency>
+    <dependency>
+      <groupId>ch.qos.logback</groupId>
+      <artifactId>logback-classic</artifactId>
+      <version>1.2.9</version> <!-- please check for the latest version -->
+    </dependency>
+
+    <!-- MySQL JDBC driver -->
+    <dependency>
+      <groupId>mysql</groupId>
+      <artifactId>mysql-connector-java</artifactId>
+      <version>8.0.28</version> <!-- please check for the latest version -->
+    </dependency>
   </dependencies>
 
 </project>

@@ -32,6 +32,7 @@ public class MySQLWrapper {
                     + ")";
             try (Statement statement = connection.createStatement()) {
                 statement.executeUpdate(createTableSQL);
+                System.out.println("[DB-System]: Channel table created");
             }
         } catch (SQLException e) {
             System.out.println(e);
@@ -46,6 +47,7 @@ public class MySQLWrapper {
                     + ")";
             try (Statement statement = connection.createStatement()) {
                 statement.executeUpdate(createTableSQL);
+                System.out.println("[DB-System]: Settings table created");
             }
         } catch (SQLException e) {
             System.out.println(e);
@@ -115,7 +117,7 @@ public class MySQLWrapper {
 
     public ChannelData getChannelData(String serverId, ChannelData data){
         try (Connection connection = dataSource.getConnection()) {
-            String insertQuery = "SELECT * FROM UserData WHERE id = ?";
+            String insertQuery = "SELECT * FROM ChannelData WHERE id = ?";
             try (PreparedStatement insertStatement = connection.prepareStatement(insertQuery)) {
                 insertStatement.setString(1, serverId);
                 ResultSet results = insertStatement.executeQuery();
@@ -129,9 +131,29 @@ public class MySQLWrapper {
                     return channelData;
                 }else{
                     insertStatement.close();
-                    ChannelData channelData = new ChannelData(serverId, null, null, null, null);
-                    createChannelTable();
-                    return channelData;
+                    return null;
+                }
+            }
+        } catch (SQLException e) {
+            System.out.println(e);
+            return null;
+        }
+    }
+
+    public SettingsData getSettingsData(String serverId, SettingsData data){
+        try (Connection connection = dataSource.getConnection()) {
+            String insertQuery = "SELECT * FROM SettingsData WHERE id = ?";
+            try (PreparedStatement insertStatement = connection.prepareStatement(insertQuery)) {
+                insertStatement.setString(1, serverId);
+                ResultSet results = insertStatement.executeQuery();
+                if (results.next()){
+                    boolean isLinkDetectionActive = DataBaseUtil.checkBool(results.getInt("isLinkDetectionActive"));
+                    SettingsData settingsData = new SettingsData(isLinkDetectionActive);
+                    insertStatement.close();
+                    return settingsData;
+                }else{
+                    insertStatement.close();
+                    return null;
                 }
             }
         } catch (SQLException e) {

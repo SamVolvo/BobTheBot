@@ -1,5 +1,6 @@
 package com.samvolvo;
 
+import com.samvolvo.database.MySQLWrapper;
 import com.samvolvo.managers.*;
 import net.dv8tion.jda.api.OnlineStatus;
 import net.dv8tion.jda.api.entities.Activity;
@@ -23,6 +24,7 @@ public class BobTheBot {
             return;
         }
 
+        MySQLWrapper wrapper = new MySQLWrapper(config.getString("db-url"), config.getString("db-user"), config.getString("db-psw"));
 
         DefaultShardManagerBuilder builder = DefaultShardManagerBuilder.createDefault(config.getString("token"));
         builder.setStatus(OnlineStatus.DO_NOT_DISTURB);

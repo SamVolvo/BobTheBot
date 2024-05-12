@@ -6,7 +6,6 @@
 token: "MTIzODk3NjkxMDgzMTI1OTcyOA.GcjDJI.gxMADCOrDETd6p8YYGyrm8ZCMEo3QwbjXLwb4g"
 
 # DataBase
-db-name: "testbase"
 db-user: "samvolvo"
 db-psw: "yolo"
-db-url: localhost:3306
+db-url: "jdbc:mysql://localhost:3306/testbase"
