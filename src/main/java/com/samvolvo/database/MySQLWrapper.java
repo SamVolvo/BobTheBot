@@ -28,7 +28,7 @@ public class MySQLWrapper {
                     + "announcementChannel varchar(256) not null,"
                     + "logChannel varchar(256) not null,"
                     + "welcomesChannel varchar(256) not null,"
-                    + "botAnnounceChannel varchar(256)  not null,"
+                    + "botAnnounceChannel varchar(256)  not null"
                     + ")";
             try (Statement statement = connection.createStatement()) {
                 statement.executeUpdate(createTableSQL);
@@ -43,7 +43,7 @@ public class MySQLWrapper {
         try (Connection connection = dataSource.getConnection()) {
             String createTableSQL = "CREATE TABLE IF NOT EXISTS SettingsData ("
                     + "ID          varchar(256) not null,"
-                    + "isLinkDetectionOn tinyint(1) not null,"
+                    + "isLinkDetectionOn tinyint(1) not null"
                     + ")";
             try (Statement statement = connection.createStatement()) {
                 statement.executeUpdate(createTableSQL);
